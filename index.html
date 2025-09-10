@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТОО DLZ LOGISTIK (ДЛЗ ЛОГИСТИК) - Профессиональные логистические решения</title>
+    <meta name="description" content="ТОО DLZ LOGISTIK предлагает профессиональные логистические решения: грузоперевозки, складская логистика, дистрибуция и международные перевозки по Казахстану и за рубежом.">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ТОО DLZ LOGISTIK — Логистические решения">
+    <meta property="og:description" content="Профессиональные грузоперевозки и логистика по Казахстану и миру.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1494412519320-aa613dfbca84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://вашсайт.kz">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚛</text></svg>">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -32,6 +46,22 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 10px;
+            background: var(--accent);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 10px;
         }
         
         /* Header Styles */
@@ -77,10 +107,29 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
         
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a:focus {
             color: var(--accent);
+            outline: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 3px 0;
+            transition: 0.3s;
         }
         
         /* Hero Section */
@@ -117,10 +166,12 @@
             cursor: pointer;
         }
         
-        .btn:hover {
+        .btn:hover,
+        .btn:focus {
             background-color: #e67e22;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            outline: 2px solid transparent;
         }
         
         /* Services Section */
@@ -162,7 +213,8 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .service-card:hover {
+        .service-card:hover,
+        .service-card:focus-within {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
@@ -215,6 +267,7 @@
             height: auto;
             display: block;
             transition: transform 0.5s;
+            loading: lazy;
         }
         
         .about-image:hover img {
@@ -259,11 +312,39 @@
             border-radius: 5px;
             background-color: rgba(255, 255, 255, 0.9);
             color: #333;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: 2px solid var(--accent);
         }
         
         .form-group textarea {
             min-height: 120px;
             resize: vertical;
+        }
+
+        .form-success {
+            color: #27ae60;
+            font-weight: 600;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .form-error {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .btn-submit {
+            position: relative;
+        }
+
+        .btn-submit.loading::after {
+            content: " Отправка...";
         }
         
         /* Footer */
@@ -305,14 +386,49 @@
             transition: color 0.3s;
         }
         
-        .social-icons a:hover {
+        .social-icons a:hover,
+        .social-icons a:focus {
             color: var(--accent);
+            outline: none;
         }
         
         .copyright {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover,
+        .back-to-top:focus {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+            outline: 2px solid transparent;
         }
         
         /* Animations */
@@ -324,9 +440,39 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 82, 118, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 15px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 999;
             }
-            
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -338,10 +484,17 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+
+            .about-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Перейти к содержанию</a>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -350,12 +503,17 @@
                     <i class="fas fa-truck"></i>
                     <span>DLZ LOGISTIK</span>
                 </div>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Главная</a></li>
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
@@ -413,7 +571,7 @@
                     <a href="#contact" class="btn">Узнать больше</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1562886889-0fc3d5ab6a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Логистический центр">
+                    <img src="https://images.unsplash.com/photo-1562886889-0fc3d5ab6a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Логистический центр" loading="lazy">
                 </div>
             </div>
         </div>
@@ -424,49 +582,51 @@
         <div class="container">
             <div class="section-title">
                 <h2>Свяжитесь с нами</h2>
-                <p>Готовы обсудить ваши логистические needs? Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
+                <p>Готовы обсудить ваши логистические потребности? Оставьте заявку и мы свяжемся с вами в ближайшее время</p>
             </div>
             <div class="contact-form">
-                <form>
+                <form id="contactForm" action="https://formspree.io/f/ваш_эндпоинт" method="POST">
                     <div class="form-group">
                         <label for="name">Ваше имя</label>
-                        <input type="text" id="name" placeholder="Введите ваше имя" required>
+                        <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Ваш email</label>
-                        <input type="email" id="email" placeholder="Введите ваш email" required>
+                        <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Сообщение</label>
-                        <textarea id="message" placeholder="Расскажите о ваших потребностях" required></textarea>
+                        <textarea id="message" name="message" placeholder="Расскажите о ваших потребностях" required></textarea>
                     </div>
-                    <button type="submit" class="btn">Отправить сообщение</button>
+                    <button type="submit" class="btn btn-submit" id="submitBtn">Отправить сообщение</button>
+                    <div class="form-success" id="successMessage">Спасибо! Мы скоро с вами свяжемся.</div>
+                    <div class="form-error" id="errorMessage">Произошла ошибка. Попробуйте позже.</div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Footer with Schema.org markup -->
+    <footer itemscope itemtype="https://schema.org/LocalBusiness">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>ТОО DLZ LOGISTIK</h3>
                     <p>Профессиональные логистические решения для вашего бизнеса</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-section" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                     <h3>Контакты</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> ул. Логистическая, 1961</p>
-                    <p><i class="fas fa-phone"></i> +7 (123) 456-78-90</p>
-                    <p><i class="fas fa-envelope"></i> info@dlzlogistik.kz</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">ул. Логистическая, 1961</span></p>
+                    <p><i class="fas fa-phone"></i> <span itemprop="telephone">+7 (123) 456-78-90</span></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@dlzlogistik.kz" itemprop="email">info@dlzlogistik.kz</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Социальные сети</h3>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -476,27 +636,32 @@
         </div>
     </footer>
 
+    <!-- Back to top button -->
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Наверх">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <script>
-        // Простая проверка формы
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            if (name && email) {
-                alert('Спасибо, ' + name + '! Мы свяжемся с вами в ближайшее время.');
-                this.reset();
-            } else {
-                alert('Пожалуйста, заполните все обязательные поля.');
-            }
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
-        
-        // Плавная прокрутка к якорям
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
+                // Close mobile menu if open
+                if (hamburger.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
@@ -508,6 +673,78 @@
                     });
                 }
             });
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Form submission with feedback
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                
+                if (!name || !email) {
+                    alert('Пожалуйста, заполните все обязательные поля.');
+                    return;
+                }
+
+                // Show loading state
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                try {
+                    const formData = new FormData(form);
+                    
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        successMessage.style.display = 'block';
+                        form.reset();
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        throw new Error('Ошибка отправки');
+                    }
+                } catch (error) {
+                    errorMessage.style.display = 'block';
+                    setTimeout(() => {
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                } finally {
+                    submitBtn.classList.remove('loading');
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // Focus styles for accessibility
+        const focusableElements = 'a[href], button, input, textarea, [tabindex]:not([tabindex="-1"])';
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('user-is-tabbing');
+            }
         });
     </script>
 </body>
