@@ -97,10 +97,26 @@
             align-items: center;
             justify-content: center;
             background: var(--yellow);
-            border-radius: 50%;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 22px;
             color: var(--gray-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-img::before {
+            content: "DLZ";
+            position: absolute;
+            font-weight: 800;
+        }
+        
+        .logo-img::after {
+            content: "logistik";
+            position: absolute;
+            font-size: 8px;
+            bottom: 5px;
+            font-weight: 600;
         }
         
         .logo-text {
@@ -614,7 +630,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <div class="logo-img">DLZ</div>
+                    <div class="logo-img"></div>
                     <div class="logo-text"><span>DLZ</span> Logistik</div>
                 </div>
                 <ul class="nav-links" id="navLinks">
@@ -786,7 +802,7 @@
                 </div>
                 <div class="footer-section" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                     <h3>Контакты</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">Казахстан, г. Нур-Султан</span></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">Казахстан, г. Алматы</span></p>
                     <p><i class="fas fa-phone"></i> <a href="tel:+77070142895" itemprop="telephone">+7 707 014 2895</a></p>
                     <p><i class="fas fa-envelope"></i> <a href="mailto:zukhra.denisko@dlzlogistik.com" itemprop="email">zukhra.denisko@dlzlogistik.com</a></p>
                 </div>
