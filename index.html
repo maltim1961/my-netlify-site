@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ТОО DLZ LOGISTIK (ДЛЗ ЛОГИСТИК) - Профессиональные логистические решения</title>
-    <meta name="description" content="ТОО DLZ LOGISTIK предлагает профессиональные логистические решения: грузоперевозки, складская логистика, дистрибуция и международные перевозки по Казахстану и за рубежом.">
+    <title>ТОО «DLZ Logistik» - Надежный партнер в международных перевозках</title>
+    <meta name="description" content="Авиа, автомобильные и мультимодальные перевозки грузов из США и Европы в Казахстан и страны СНГ. Опыт с 2008 года.">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="ТОО DLZ LOGISTIK — Логистические решения">
-    <meta property="og:description" content="Профессиональные грузоперевозки и логистика по Казахстану и миру.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1494412519320-aa613dfbca84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:url" content="https://вашсайт.kz">
+    <meta property="og:title" content="ТОО «DLZ Logistik» — Международные перевозки">
+    <meta property="og:description" content="Авиа, автомобильные и мультимодальные перевозки грузов из США и Европы">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1562886889-0fc3d5ab6a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://dlzlogistik.com">
     <meta property="og:type" content="website">
 
     <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚛</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,11 +28,14 @@
         }
         
         :root {
-            --primary: #1a5276;
-            --secondary: #2e86c1;
-            --accent: #f39c12;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
+            --gray-dark: #333333;
+            --gray-medium: #666666;
+            --gray-light: #999999;
+            --silver: #c0c0c0;
+            --silver-light: #e6e6e6;
+            --yellow: #ffc107;
+            --orange: #ff9800;
+            --orange-dark: #f57c00;
         }
         
         body {
@@ -53,7 +56,7 @@
             position: absolute;
             top: -40px;
             left: 10px;
-            background: var(--accent);
+            background: var(--orange);
             color: white;
             padding: 8px;
             text-decoration: none;
@@ -66,7 +69,7 @@
         
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
             color: white;
             padding: 15px 0;
             position: sticky;
@@ -82,15 +85,31 @@
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 700;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         
-        .logo i {
-            margin-right: 10px;
-            color: var(--accent);
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--yellow);
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--gray-dark);
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--yellow);
         }
         
         .nav-links {
@@ -113,7 +132,7 @@
         
         .nav-links a:hover,
         .nav-links a:focus {
-            color: var(--accent);
+            color: var(--yellow);
             outline: none;
         }
 
@@ -135,27 +154,27 @@
         /* Hero Section */
         .hero {
             padding: 100px 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1494412519320-aa613dfbca84?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1562886889-0fc3d5ab6a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
             color: white;
             text-align: center;
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 20px;
             animation: fadeIn 1.5s ease-in;
         }
         
         .hero p {
             font-size: 1.2rem;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 30px;
             animation: fadeIn 2s ease-in;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--accent);
+            background-color: var(--orange);
             color: white;
             padding: 12px 30px;
             border-radius: 50px;
@@ -168,7 +187,7 @@
         
         .btn:hover,
         .btn:focus {
-            background-color: #e67e22;
+            background-color: var(--orange-dark);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             outline: 2px solid transparent;
@@ -183,19 +202,32 @@
         .section-title {
             text-align: center;
             margin-bottom: 50px;
-            color: var(--dark);
+            color: var(--gray-dark);
         }
         
         .section-title h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--gray-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--orange);
         }
         
         .section-title p {
             max-width: 700px;
-            margin: 0 auto;
-            color: #666;
+            margin: 20px auto 0;
+            color: var(--gray-medium);
         }
         
         .services-grid {
@@ -205,12 +237,13 @@
         }
         
         .service-card {
-            background-color: var(--light);
+            background-color: var(--silver-light);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--yellow);
         }
         
         .service-card:hover,
@@ -221,13 +254,17 @@
         
         .service-card i {
             font-size: 48px;
-            color: var(--secondary);
+            color: var(--orange);
             margin-bottom: 20px;
         }
         
         .service-card h3 {
             margin-bottom: 15px;
-            color: var(--primary);
+            color: var(--gray-dark);
+        }
+        
+        .service-card p {
+            color: var(--gray-medium);
         }
         
         /* About Section */
@@ -251,7 +288,24 @@
         .about-text h2 {
             font-size: 2.2rem;
             margin-bottom: 20px;
-            color: var(--primary);
+            color: var(--gray-dark);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-text h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--orange);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray-medium);
         }
         
         .about-image {
@@ -274,24 +328,66 @@
             transform: scale(1.05);
         }
         
-        /* Contact Section */
-        .contact {
+        /* Why Choose Us Section */
+        .why-us {
             padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
             color: white;
         }
         
-        .contact .section-title h2 {
+        .why-us .section-title h2 {
             color: white;
+        }
+        
+        .why-us .section-title h2:after {
+            background: var(--yellow);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-item i {
+            font-size: 40px;
+            color: var(--yellow);
+            margin-bottom: 20px;
+        }
+        
+        .feature-item h3 {
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
         }
         
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--silver-light);
             padding: 30px;
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
         
         .form-group {
@@ -302,22 +398,26 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: var(--gray-dark);
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 12px 15px;
-            border: none;
+            border: 1px solid var(--silver);
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #333;
+            background-color: white;
+            color: var(--gray-dark);
             font-family: inherit;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            outline: 2px solid var(--accent);
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.2);
         }
         
         .form-group textarea {
@@ -349,7 +449,7 @@
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: var(--gray-dark);
             color: white;
             padding: 40px 0 20px;
             text-align: center;
@@ -370,7 +470,21 @@
         
         .footer-section h3 {
             margin-bottom: 20px;
-            color: var(--accent);
+            color: var(--yellow);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: var(--silver);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .footer-section a {
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--yellow);
         }
         
         .social-icons {
@@ -388,7 +502,7 @@
         
         .social-icons a:hover,
         .social-icons a:focus {
-            color: var(--accent);
+            color: var(--yellow);
             outline: none;
         }
         
@@ -403,7 +517,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: var(--accent);
+            background-color: var(--orange);
             color: white;
             width: 50px;
             height: 50px;
@@ -426,7 +540,7 @@
 
         .back-to-top:hover,
         .back-to-top:focus {
-            background-color: #e67e22;
+            background-color: var(--orange-dark);
             transform: translateY(-3px);
             outline: 2px solid transparent;
         }
@@ -444,7 +558,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: rgba(26, 82, 118, 0.95);
+                background: rgba(51, 51, 51, 0.95);
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 0;
@@ -500,13 +614,14 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <i class="fas fa-truck"></i>
-                    <span>DLZ LOGISTIK</span>
+                    <div class="logo-img">DLZ</div>
+                    <div class="logo-text"><span>DLZ</span> Logistik</div>
                 </div>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home">Главная</a></li>
                     <li><a href="#services">Услуги</a></li>
                     <li><a href="#about">О нас</a></li>
+                    <li><a href="#why-us">Преимущества</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
@@ -521,8 +636,8 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Профессиональные логистические решения</h1>
-            <p>Обеспечиваем надежные и эффективные грузоперевозки по всей стране. Наша миссия - оптимизировать вашу логистику и сократить издержки.</p>
+            <h1>Надежный партнер в международных перевозках</h1>
+            <p>DLZ Logistik – это транспортно-экспедиторская компания, специализирующаяся на авиа, автомобильных и мультимодальных перевозках грузов из США и Европы. Мы помогаем бизнесу оперативно, безопасно и выгодно организовать доставку товаров в Казахстан и страны СНГ.</p>
             <a href="#contact" class="btn">Связаться с нами</a>
         </div>
     </section>
@@ -532,28 +647,28 @@
         <div class="container">
             <div class="section-title">
                 <h2>Наши услуги</h2>
-                <p>Мы предлагаем полный спектр логистических услуг для бизнеса любого масштаба</p>
+                <p>Комплексные логистические решения для вашего бизнеса</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-truck-loading"></i>
-                    <h3>Грузоперевозки</h3>
-                    <p>Быстрая и надежная доставка грузов любого объема и сложности по всей территории страны.</p>
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>Авиаперевозки</h3>
+                    <p>Быстрые решения для срочных поставок, оптимизация по времени и стоимости. Доставка грузов из США и Европы в кратчайшие сроки.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-warehouse"></i>
-                    <h3>Складская логистика</h3>
-                    <p>Организация складского хранения с современными системами учета и управления.</p>
+                    <i class="fas fa-truck"></i>
+                    <h3>Автомобильные перевозки</h3>
+                    <p>Регулярные маршруты по Европе, надёжные партнеры и контроль на каждом этапе. Гарантия сохранности и своевременной доставки.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-boxes"></i>
-                    <h3>Дистрибуция</h3>
-                    <p>Оптимизация цепочек поставок и распределения товаров для розничных сетей.</p>
+                    <i class="fas fa-ship"></i>
+                    <h3>Мультимодальные перевозки</h3>
+                    <p>Комбинированные схемы "авиа + авто + море + ЖД" для оптимального баланса скорости и цены. Индивидуальные логистические решения.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-globe-europe"></i>
-                    <h3>Международные перевозки</h3>
-                    <p>Организация мультимодальных перевозок с таможенным оформлением и сопровождением.</p>
+                    <i class="fas fa-passport"></i>
+                    <h3>Экспедирование и сопровождение</h3>
+                    <p>Полное сопровождение груза от точки отправления до склада получателя, включая таможенные процедуры и документальное оформление.</p>
                 </div>
             </div>
         </div>
@@ -565,13 +680,63 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>О нашей компании</h2>
-                    <p>ТОО DLZ LOGISTIK (ДЛЗ ЛОГИСТИК) - это современная логистическая компания с многолетним опытом работы на рынке транспортных услуг. Мы специализируемся на организации грузоперевозок различной сложности.</p>
-                    <p>Наша команда профессионалов гарантирует индивидуальный подход к каждому клиенту, разрабатывая оптимальные логистические решения для вашего бизнеса.</p>
-                    <p>Мы используем современные технологии отслеживания грузов и управления цепочками поставок, что позволяет нам обеспечивать высокий уровень сервиса.</p>
+                    <p>ТОО «DLZ Logistik» — это современная транспортно-логистическая компания с многолетним опытом работы на рынке международных перевозок. Мы специализируемся на организации грузоперевозок различной сложности из США и Европы в Казахстан и страны СНГ.</p>
+                    <p>Наша команда профессионалов гарантирует индивидуальный подход к каждому клиенту, разрабатывая оптимальные логистические решения для вашего бизнеса. Мы понимаем, что надежная доставка — это ключевой фактор успеха в современном бизнесе.</p>
+                    <p>Мы используем современные технологии отслеживания грузов и управления цепочками поставок, что позволяет нам обеспечивать высокий уровень сервиса и прозрачность всех процессов для наших клиентов.</p>
                     <a href="#contact" class="btn">Узнать больше</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1562886889-0fc3d5ab6a4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Логистический центр" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Логистический центр DLZ Logistik" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему выбирают DLZ Logistik</h2>
+                <p>Наши конкурентные преимущества, которые делают нас надежным партнером</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-history"></i>
+                    <h3>Опыт с 2008 года</h3>
+                    <p>Более 15 лет в международной логистике. Участие в реализации сложных проектов по доставке грузов из США и Европы для промышленных, торговых и государственных компаний.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Надёжные партнёры</h3>
+                    <p>Выстроенные связи с крупнейшими авиалиниями, морскими и автоперевозчиками. Долгосрочные отношения с проверенными поставщиками услуг.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Индивидуальные решения</h3>
+                    <p>Мы подбираем оптимальный маршрут под задачи клиента, сокращая издержки и минимизируя риски. Гибкий подход к каждому проекту.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Прозрачность и контроль</h3>
+                    <p>Регулярные отчеты, трекинг груза и персональный менеджер на каждом этапе перевозки. Полная информационная открытость для клиента.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="about" id="mission">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Партнерство в логистике" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2>Наша миссия</h2>
+                    <p>Мы стремимся быть не просто транспортной компанией, а надежным партнёром, который помогает бизнесу расти за счёт эффективной логистики.</p>
+                    <p>Наша цель — обеспечить бесперебойную и экономически выгодную доставку грузов, чтобы наши клиенты могли сосредоточиться на развитии своего бизнеса, не беспокоясь о логистических вопросах.</p>
+                    <p>Мы ценим долгосрочные отношения с клиентами и партнерами, строим работу на принципах взаимовыгодного сотрудничества, профессионализма и ответственности.</p>
+                    <a href="#contact" class="btn">Обсудить сотрудничество</a>
                 </div>
             </div>
         </div>
@@ -595,6 +760,10 @@
                         <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
                     </div>
                     <div class="form-group">
+                        <label for="phone">Ваш телефон</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Введите ваш телефон">
+                    </div>
+                    <div class="form-group">
                         <label for="message">Сообщение</label>
                         <textarea id="message" name="message" placeholder="Расскажите о ваших потребностях" required></textarea>
                     </div>
@@ -611,14 +780,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>ТОО DLZ LOGISTIK</h3>
-                    <p>Профессиональные логистические решения для вашего бизнеса</p>
+                    <h3>ТОО «DLZ Logistik»</h3>
+                    <p>Надежный партнер в международных перевозках</p>
+                    <p>Опыт работы с 2008 года</p>
                 </div>
                 <div class="footer-section" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                     <h3>Контакты</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">ул. Логистическая, 1961</span></p>
-                    <p><i class="fas fa-phone"></i> <span itemprop="telephone">+7 (123) 456-78-90</span></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@dlzlogistik.kz" itemprop="email">info@dlzlogistik.kz</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span itemprop="streetAddress">Казахстан, г. Нур-Султан</span></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+77070142895" itemprop="telephone">+7 707 014 2895</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:zukhra.denisko@dlzlogistik.com" itemprop="email">zukhra.denisko@dlzlogistik.com</a></p>
                 </div>
                 <div class="footer-section">
                     <h3>Социальные сети</h3>
@@ -631,7 +801,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 ТОО DLZ LOGISTIK (ДЛЗ ЛОГИСТИК). Все права защищены.</p>
+                <p>&copy; 2023 ТОО «DLZ Logistik». Все права защищены.</p>
             </div>
         </div>
     </footer>
